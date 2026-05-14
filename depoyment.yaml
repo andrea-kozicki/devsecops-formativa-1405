@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops-formativa-1405-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devsecops-formativa-1405
+  template:
+    metadata:
+      labels:
+        app: devsecops-formativa-1405
+    spec:
+      containers:
+      - name: devsecops-formativa-1405-container
+        image: nginx:latest
+        ports:
+          - containerPort: 80

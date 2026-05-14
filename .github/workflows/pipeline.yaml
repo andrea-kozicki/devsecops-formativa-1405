@@ -1,0 +1,15 @@
+name: implantacao-pipeline 
+on:
+  workflow_dispatch:
+
+jobs:
+  implantacao:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Kubernetes
+          run: kubectl apply -f deployment.yaml
+      - name: Listando pods
+          run: kubectl get pods
