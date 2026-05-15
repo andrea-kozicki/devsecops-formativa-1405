@@ -4,12 +4,12 @@ on:
 
 jobs:
   implantacao:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Deploy to Kubernetes
-          run: kubectl apply -f deployment.yaml
+        run: kubectl apply -f deployment.yaml
       - name: Listando pods
-          run: kubectl get pods
+        run: kubectl get pods
